@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductSeller
@@ -19,32 +11,22 @@ namespace ProductSeller
             InitializeComponent();
         }
 
-        //~frmMain()
-        //{
-        //    MessageBox.Show("Exit");
-        //    Application.Exit();
-        //}
-
-        //List<Products> list = new List<Products>();
-
-        
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int getLastId = 0;
-            foreach (ListViewItem item in listView.Items)
-            {
-                getLastId = int.Parse(item.Text);
-                ;
-            }
+            //int getLastId = 0;
+            //foreach (ListViewItem item in listView.Items)
+            //{
+            //    getLastId = int.Parse(item.Text);
+            //}
 
-            if (Data.Id == getLastId)
-            {
-                Data.Id++;
-            }
-            else
-            {
-                Data.Id = getLastId + 1;
-            }
+            //if (Data.Id == getLastId)
+            //{
+            //    Data.Id++;
+            //}
+            //else
+            //{
+            //    Data.Id = getLastId + 1;
+            //}
 
             txtID.Text = Data.Id + "";
             int id = int.Parse(txtID.Text);
@@ -100,20 +82,24 @@ namespace ProductSeller
             if (Data.List.Count > 0)
             {
                 foreach (Products temp in Data.List)
+                {
                     listView.Items.Add(temp.item());
+                    Data.GetLastId = temp.Id;
+                }
 
-                foreach (ListViewItem id in listView.Items)
-                    Data.GetLastId = int.Parse(id.Text);
-            }
-            
-            if (Data.Id == Data.GetLastId)
-            {
-                Data.Id++;
+                //foreach (ListViewItem id in listView.Items)
+                //    Data.GetLastId = int.Parse(id.Text);
             }
             else
             {
-                Data.Id = Data.GetLastId+1;
+                Data.GetLastId = 0;
+                Data.Id = 1;
             }
+            
+            if (Data.Id == Data.GetLastId)
+                Data.Id++;
+            else
+                Data.Id = Data.GetLastId+1;
 
             txtID.Text = Data.Id + "";
 
@@ -169,7 +155,7 @@ namespace ProductSeller
                         lbRequred2.Text = "*";
                     }
                 }
-                catch (FormatException)
+                catch (Exception)
                 {
                     lbCheck = false;
                     lbRequred2.Text = "*";
@@ -208,7 +194,7 @@ namespace ProductSeller
                         lbRequred3.Text = "*";
                     }
                 }
-                catch (FormatException)
+                catch (Exception)
                 {
                     lbCheck2 = false;
                     lbRequred3.Text = "*";
@@ -233,6 +219,7 @@ namespace ProductSeller
                 btnAdd.Enabled = false;
         }
         
+        //Over testing data file
         private void btnUseDataFile_Click(object sender, EventArgs e)
         {
 

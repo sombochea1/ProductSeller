@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductSeller
@@ -16,14 +9,7 @@ namespace ProductSeller
         {
             InitializeComponent();
         }
-
-        //public ViewProduct(List<Products> list):this()
-        //{
-        //    this.list = list;
-        //}
-
-        //List<Products> list;
-
+        
         private void ViewProduct_Load(object sender, EventArgs e)
         {
             if(Data.List.Count > 0)
@@ -51,7 +37,7 @@ namespace ProductSeller
             Application.Exit();
         }
 
-        private bool act_update = false;
+        private bool active_update = false;
         private ListViewItem item_selected;
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,7 +48,7 @@ namespace ProductSeller
                 txtPname.Enabled = false;
                 txtPrice.Enabled = false;
                 txtQty.Enabled = false;
-                act_update = false;
+                active_update = false;
 
                 txtID.Clear();
                 txtPname.Clear();
@@ -88,7 +74,7 @@ namespace ProductSeller
             txtPrice.Enabled = true;
             txtQty.Enabled = true;
 
-            act_update = true;
+            active_update = true;
 
     }
 
@@ -101,16 +87,16 @@ namespace ProductSeller
                 Data.List.RemoveAt(index);
             }
 
-            if (listView.Items.Count == 0)
-            {
-                Data.GetLastId = 0;
-                Data.Id = 1;
-            }
-            else
-            {
-                foreach (ListViewItem id in listView.Items)
-                    Data.GetLastId = int.Parse(id.Text);
-            }
+            //if (listView.Items.Count == 0)
+            //{
+            //    Data.GetLastId = 0;
+            //    Data.Id = 1;
+            //}
+            //else
+            //{
+            //    foreach (ListViewItem id in listView.Items)
+            //        Data.GetLastId = int.Parse(id.Text);
+            //}
 
             txtPname.Clear();
             txtQty.Clear();
@@ -186,7 +172,7 @@ namespace ProductSeller
                         lbRequred2.Text = "*";
                     }
                 }
-                catch (FormatException)
+                catch (Exception)
                 {
                     lbCheck = false;
                     lbRequred2.Text = "*";
@@ -217,7 +203,7 @@ namespace ProductSeller
                         lbRequred3.Text = "*";
                     }
                 }
-                catch (FormatException)
+                catch (Exception)
                 {
                     lbCheck2 = false;
                     lbRequred3.Text = "*";
@@ -233,7 +219,7 @@ namespace ProductSeller
 
             if (txtPname.Text.Trim() != "" && txtQty.Text != "" && txtPrice.Text != "" && lbCheck != false && lbCheck2 != false)
             {
-                if (act_update)
+                if (active_update)
                 {
                     if (txtID.Text.Trim() == item_selected.Text &&
                        txtPname.Text.Trim() == item_selected.SubItems[1].Text &&

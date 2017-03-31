@@ -165,7 +165,7 @@
             // chUPrice
             // 
             this.chUPrice.Text = "UPrice";
-            this.chUPrice.Width = 239;
+            this.chUPrice.Width = 178;
             // 
             // chAmount
             // 
