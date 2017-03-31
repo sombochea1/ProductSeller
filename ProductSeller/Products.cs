@@ -32,7 +32,7 @@ namespace ProductSeller
 
         public ListViewItem item()
         {
-            string[] str_data_en = { id.ToString("000"), pname, qty + "", uprice.ToString(), Amount().ToString("$#,##0.00")};
+            string[] str_data_en = { id.ToString("000"), pname, qty + "", uprice.ToString("$#,##0.00"), Amount().ToString("$#,##0.00")};
             return new ListViewItem(str_data_en);
         }
 
@@ -59,5 +59,6 @@ namespace ProductSeller
 
             return list;
         }
+        
     }
 }

@@ -67,7 +67,7 @@ namespace ProductSeller
             txtID.Text = item_selected.Text;
             txtPname.Text = item_selected.SubItems[1].Text;
             txtQty.Text = item_selected.SubItems[2].Text;
-            txtPrice.Text = item_selected.SubItems[3].Text;
+            txtPrice.Text = Data.PriceToDouble(item_selected.SubItems[3].Text)+"";
 
             btnDel.Enabled = true;
             txtPname.Enabled = true;
@@ -86,17 +86,6 @@ namespace ProductSeller
                 listView.Items.Remove(item);
                 Data.List.RemoveAt(index);
             }
-
-            //if (listView.Items.Count == 0)
-            //{
-            //    Data.GetLastId = 0;
-            //    Data.Id = 1;
-            //}
-            //else
-            //{
-            //    foreach (ListViewItem id in listView.Items)
-            //        Data.GetLastId = int.Parse(id.Text);
-            //}
 
             txtPname.Clear();
             txtQty.Clear();
@@ -219,18 +208,25 @@ namespace ProductSeller
 
             if (txtPname.Text.Trim() != "" && txtQty.Text != "" && txtPrice.Text != "" && lbCheck != false && lbCheck2 != false)
             {
+                double check_price_1 = double.Parse(txtPrice.Text.Trim());
+                double check_price_2 = Data.PriceToDouble(item_selected.SubItems[3].Text);
+                bool check_price = false;
+                if (check_price_1 == check_price_2)
+                    check_price = true;
+                else
+                    check_price = false;
+
                 if (active_update)
                 {
                     if (txtID.Text.Trim() == item_selected.Text &&
                        txtPname.Text.Trim() == item_selected.SubItems[1].Text &&
                        txtQty.Text.Trim() == item_selected.SubItems[2].Text &&
-                       txtPrice.Text.Trim() == item_selected.SubItems[3].Text)
+                       check_price)
                     {
-
+                        
                         btnUpdate.Enabled = false;
                         btnDel.Enabled = true;
                     }
-
                     else
                     {
                         btnUpdate.Enabled = true;

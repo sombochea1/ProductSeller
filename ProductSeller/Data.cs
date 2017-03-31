@@ -27,5 +27,23 @@ namespace ProductSeller
         public static string Temp_qty { get => temp_qty; set => temp_qty = value; }
         public static string Temp_uprice { get => temp_uprice; set => temp_uprice = value; }
 
+        //Converter to Price Double with $ sign
+        public static double PriceToDouble(string uprice)
+        {
+            double real_price = 0;
+            string[] hack_text = uprice.Split('$');
+            string data = "";
+            foreach (string temp in hack_text)
+            {
+                if (temp == "$")
+                    continue;
+                else
+                    data += temp;
+            }
+
+            real_price = double.Parse(data);
+
+            return real_price;
+        }
     }
 }

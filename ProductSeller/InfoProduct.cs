@@ -13,21 +13,7 @@ namespace ProductSeller
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //int getLastId = 0;
-            //foreach (ListViewItem item in listView.Items)
-            //{
-            //    getLastId = int.Parse(item.Text);
-            //}
-
-            //if (Data.Id == getLastId)
-            //{
-            //    Data.Id++;
-            //}
-            //else
-            //{
-            //    Data.Id = getLastId + 1;
-            //}
-
+           
             txtID.Text = Data.Id + "";
             int id = int.Parse(txtID.Text);
             string pname = txtPname.Text.Trim();
@@ -35,7 +21,6 @@ namespace ProductSeller
             double uprice = double.Parse(txtPrice.Text);
 
             Products product = new Products(id, pname, qty, uprice);
-
             Data.List.Add(product);
             listView.Items.Add(product.item());
 
@@ -86,9 +71,6 @@ namespace ProductSeller
                     listView.Items.Add(temp.item());
                     Data.GetLastId = temp.Id;
                 }
-
-                //foreach (ListViewItem id in listView.Items)
-                //    Data.GetLastId = int.Parse(id.Text);
             }
             else
             {
