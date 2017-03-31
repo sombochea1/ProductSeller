@@ -130,17 +130,19 @@ namespace ProductSeller
         {
             bool lbCheck = false;
             bool lbCheck2 = false;
+            bool lbCheck3 = false;
             int qty_check = 0;
             double price_check = 0;
 
             if (txtPname.Text.Trim() != "")
             {
                 lbRequred.Text = "";
+                lbCheck3 = true;
             }
             else
             {
+                lbCheck3 = false;
                 lbRequred.Text = "*";
-                btnDel.Enabled = false;
             }
             
             if (txtQty.Text.Trim() != "")
@@ -205,23 +207,15 @@ namespace ProductSeller
                 lbRequred3.Text = "*";
             }
 
-
-            if (txtPname.Text.Trim() != "" && txtQty.Text != "" && txtPrice.Text != "" && lbCheck != false && lbCheck2 != false)
+            if (lbCheck3 && lbCheck && lbCheck2)
             {
-                double check_price_1 = double.Parse(txtPrice.Text.Trim());
-                double check_price_2 = Data.PriceToDouble(item_selected.SubItems[3].Text);
-                bool check_price = false;
-                if (check_price_1 == check_price_2)
-                    check_price = true;
-                else
-                    check_price = false;
-
+                
                 if (active_update)
                 {
                     if (txtID.Text.Trim() == item_selected.Text &&
                        txtPname.Text.Trim() == item_selected.SubItems[1].Text &&
                        txtQty.Text.Trim() == item_selected.SubItems[2].Text &&
-                       check_price)
+                       (Data.PriceToDouble(txtPrice.Text) == Data.PriceToDouble(item_selected.SubItems[3].Text))) 
                     {
                         
                         btnUpdate.Enabled = false;
@@ -237,6 +231,7 @@ namespace ProductSeller
             else
             {
                 btnUpdate.Enabled = false;
+                btnDel.Enabled = false;
             }
 
         }

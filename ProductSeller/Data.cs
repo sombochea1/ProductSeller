@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProductSeller
@@ -40,8 +41,14 @@ namespace ProductSeller
                 else
                     data += temp;
             }
-
-            real_price = double.Parse(data);
+            try
+            {
+                real_price = double.Parse(data);
+            }
+            catch (Exception)
+            {
+                return real_price = 0;
+            }
 
             return real_price;
         }
