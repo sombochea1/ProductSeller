@@ -59,6 +59,52 @@ namespace ProductSeller
 
             return list;
         }
+
+        public double ChangeAmount(string currency)
+        {
+            if (currency == "KHR")
+            {
+                return (Qty * Uprice) * 4000;
+            }
+            else if (currency == "USD")
+            {
+                return (Qty * Uprice) / 4000;
+            }
+            else
+            {
+                MessageBox.Show("Something error!");
+                return 0;
+            }
+
+
+        }
+
+        public double ChangePrice(string currency)
+        {
+            if (currency == "KHR")
+            {
+                return Uprice * 4000;
+            }
+            else if (currency == "USD")
+            {
+                return Uprice / 4000;
+            }
+            else
+            {
+                MessageBox.Show("Something error!");
+                return 0;
+            }
+
+
+        }
+
+        public ListViewItem item(string currency)
+        {
+            string[] str_data_en = { Id.ToString("000"), Pname, Qty+"", ChangePrice(currency).ToString("KHR#,##0.00"), ChangeAmount(currency).ToString("KHR#,##0.00") };
+
+            return new ListViewItem(str_data_en);
+        }
         
+
     }
 }

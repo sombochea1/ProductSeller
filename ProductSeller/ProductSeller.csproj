@@ -45,12 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="currency.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="InfoProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InfoProduct.Designer.cs">
       <DependentUpon>InfoProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintPreview.Designer.cs">
+      <DependentUpon>PrintPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
@@ -65,9 +72,13 @@
     <EmbeddedResource Include="InfoProduct.resx">
       <DependentUpon>InfoProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintPreview.resx">
+      <DependentUpon>PrintPreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewProduct.resx">
       <DependentUpon>ViewProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Data.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

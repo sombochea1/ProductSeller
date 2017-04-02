@@ -219,5 +219,10 @@ namespace ProductSeller
 
             
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            new PrintPreview().ShowDialog();
+        }
     }
 }

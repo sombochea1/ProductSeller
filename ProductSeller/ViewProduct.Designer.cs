@@ -71,6 +71,7 @@
             this.chAmount});
             this.listView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView.FullRowSelect = true;
+            this.listView.GridLines = true;
             this.listView.Location = new System.Drawing.Point(-2, 206);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(1050, 304);

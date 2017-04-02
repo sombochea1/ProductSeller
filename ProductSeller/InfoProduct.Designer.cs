@@ -48,6 +48,7 @@
             this.lbRequred2 = new System.Windows.Forms.Label();
             this.lbRequred = new System.Windows.Forms.Label();
             this.btnUseDataFile = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -138,6 +139,7 @@
             this.chUPrice,
             this.chAmount});
             this.listView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView.GridLines = true;
             this.listView.Location = new System.Drawing.Point(2, 248);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
@@ -176,7 +178,7 @@
             // 
             this.btnAdd.Enabled = false;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(633, 96);
+            this.btnAdd.Location = new System.Drawing.Point(628, 72);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(124, 37);
             this.btnAdd.TabIndex = 9;
@@ -187,7 +189,7 @@
             // btnView
             // 
             this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(633, 165);
+            this.btnView.Location = new System.Drawing.Point(628, 141);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(124, 37);
             this.btnView.TabIndex = 10;
@@ -234,19 +236,31 @@
             // btnUseDataFile
             // 
             this.btnUseDataFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUseDataFile.Location = new System.Drawing.Point(633, 12);
+            this.btnUseDataFile.Location = new System.Drawing.Point(760, 12);
             this.btnUseDataFile.Name = "btnUseDataFile";
-            this.btnUseDataFile.Size = new System.Drawing.Size(182, 27);
+            this.btnUseDataFile.Size = new System.Drawing.Size(111, 27);
             this.btnUseDataFile.TabIndex = 26;
             this.btnUseDataFile.Text = "Use Data File";
             this.btnUseDataFile.UseVisualStyleBackColor = true;
             this.btnUseDataFile.Click += new System.EventHandler(this.btnUseDataFile_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(767, 215);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(111, 27);
+            this.btnPrint.TabIndex = 26;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 491);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnUseDataFile);
             this.Controls.Add(this.lbRequred3);
             this.Controls.Add(this.lbRequred2);
@@ -296,6 +310,7 @@
         private System.Windows.Forms.Label lbRequred2;
         private System.Windows.Forms.Label lbRequred;
         private System.Windows.Forms.Button btnUseDataFile;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
 

@@ -52,5 +52,19 @@ namespace ProductSeller
 
             return real_price;
         }
+
+
+        public static string PrintDoc(List<Products> list)
+        {
+            string data_Content = "ID\tPName\t\tQty\tUPrice\t\tAmount\t\t" + System.Environment.NewLine +
+                "-------------------------------------------------------------------------------------------------------------" + System.Environment.NewLine;
+            foreach(Products temp in list)
+            {
+                data_Content += temp.Id.ToString("000") + "\t" + temp.Pname + "\t\t" + temp.Qty + "\t" + temp.Uprice.ToString("$#,##0.00") + "\t\t" + temp.Amount().ToString("$#,##0.00") + "\t\t" + System.Environment.NewLine +
+                    "-------------------------------------------------------------------------------------------------------------" + System.Environment.NewLine;
+            }
+
+            return data_Content;
+        }
     }
 }
